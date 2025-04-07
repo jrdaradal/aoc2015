@@ -4,7 +4,7 @@
 from utils import * 
 
 # SolutionA: 1606483
-# SolutionB: 
+# SolutionB: 3842356
 
 dims = tuple[int,int,int]
 
