@@ -16,14 +16,19 @@ def input02(full: bool) -> list[dims]:
 def day02A():
     full = True
     total = 0 
-    for d in input02(full):
-        l,w,h = d 
+    for l,w,h in input02(full):
         lw, wh, lh = l*w, w*h, l*h 
-        area = (2*lw) + (2*wh) + (2*lh) + min(lw,wh,lh)
-        total += area 
+        total += (2*lw) + (2*wh) + (2*lh) + min(lw,wh,lh)
     print('Total:', total)
 
-
+def day02B():
+    full = True 
+    total = 0 
+    for d in input02(full):
+        d1, d2, d3 = sorted(d)
+        total += (2 * (d1+d2)) + (d1*d2*d3) 
+    print('Total:', total)
 
 if __name__ == '__main__':
-    day02A()
+    # day02A()
+    day02B()
