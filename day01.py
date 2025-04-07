@@ -4,6 +4,7 @@
 from utils import *
 
 # SolutionA: 74
+# SolutionB: 1795
 
 def input01(full: bool) -> list[str]:
     return readLines(getPath(1, full))
