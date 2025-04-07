@@ -4,6 +4,7 @@
 from utils import * 
 
 # SolutionA: 3176
+# SolutionB: 14710
 
 LET, AND, OR, NOT, LSHIFT, RSHIFT = 'LET', 'AND', 'OR', 'NOT', 'LSHIFT', 'RSHIFT'
 
@@ -35,7 +36,12 @@ def day07A():
     full = True 
     solveA(full)
 
-def solveA(full: bool):
+def day07B():
+    full = True 
+    override = {'b': 3176}
+    solveA(full, override)
+
+def solveA(full: bool, override: dict[str,int]|None = None):
     value = {}
     defer = []
     for cmd in input07(full):
@@ -53,6 +59,10 @@ def solveA(full: bool):
             defer.append(([cmd[2]], rcv, op, cmd[3]))
         elif op == NOT:
             defer.append(([cmd[2]], rcv, op, None))
+
+    if override is not None:
+        for k,v in override.items():
+            value[k] = v
 
     while len(defer) > 0:
         defer2 = []
@@ -89,4 +99,5 @@ def getVars(items: list) -> tuple[list, list]:
     return (vars, consts)
 
 if __name__ == '__main__':
-    day07A()
+    # day07A()
+    day07B()
