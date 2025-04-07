@@ -4,18 +4,19 @@
 from utils import * 
 
 # SolutionA: 400410
-# 
+# SolutionB: 15343601
 
 cmd = tuple[int,int,int,int,int] # (1/0/-1), x1, y1, x2, y2
+on, off, toggle = 'turn on', 'turn off', 'toggle'
 
-def input06(full: bool) -> list[cmd]:
+def input06(full: bool, mask: dict[str,int]) -> list[cmd]:
     def convert(line: str) -> cmd:
-        if line.startswith('turn on'):
-            b = 1
-        elif line.startswith('turn off'):
-            b = 0
-        elif line.startswith('toggle'):
-            b = -1
+        if line.startswith(on):
+            b = mask[on]
+        elif line.startswith(off):
+            b = mask[off]
+        elif line.startswith(toggle):
+            b = mask[toggle]
         p = line.split('through')
         c1 = p[0].split()[-1].strip()
         c2 = p[1].strip()
@@ -27,8 +28,9 @@ def input06(full: bool) -> list[cmd]:
 
 def day06A():
     full = True
+    mask = {on: 1, off: 0, toggle: -1}
     grid = {(x,y): False for x in range(1000) for y in range(1000)}
-    for b,x1,y1,x2,y2 in input06(full):
+    for b,x1,y1,x2,y2 in input06(full, mask):
         for x in range(x1,x2):
             for y in range(y1,y2):
                 if b == -1:
@@ -37,5 +39,17 @@ def day06A():
                     grid[(x,y)] = bool(b)
     print(sum(grid.values()))
 
+def day06B():
+    full = True 
+    mask = {on: 1, off: -1, toggle: 2}
+    grid = {(x,y): 0 for x in range(1000) for y in range(1000)}
+    for b,x1,y1,x2,y2 in input06(full, mask):
+        for x in range(x1,x2):
+            for y in range(y1,y2):
+                value = grid[(x,y)] + b 
+                grid[(x,y)] = max(value, 0)
+    print(sum(grid.values()))
+
 if __name__ == '__main__':
-    day06A()
+    # day06A()
+    day06B()
