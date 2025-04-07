@@ -19,5 +19,19 @@ def day01A():
                 level -= 1 
         print(level)
 
+def day01B():
+    full = True 
+    for line in input01(full):
+        level = 0 
+        for i,x in enumerate(line):
+            if x == '(':
+                level += 1 
+            elif x == ')':
+                level -= 1
+            if level == -1:
+                print(i+1)
+                break
+
 if __name__ == '__main__':
-    day01A()
+    # day01A()
+    day01B()
