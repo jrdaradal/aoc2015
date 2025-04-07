@@ -4,6 +4,7 @@
 from utils import * 
 
 # SolutionA: 2081
+# SolutionB: 2341
 
 coords = tuple[int,int] # row,col 
 
@@ -33,6 +34,19 @@ def day03A():
             visited.add(curr)
         print(len(visited))
 
+def day03B():
+    full = True 
+    for moves in input03(full):
+        santa, robo = (0,0), (0,0)
+        visited = set([santa])
+        numMoves = len(moves)
+        for i in range(0, numMoves-1, 2):
+            santa = move(santa, moves[i])
+            robo = move(robo, moves[i+1])
+            visited.add(santa)
+            visited.add(robo)
+        print('Visited', len(visited))
+
 
 def move(curr: coords, d: coords) -> coords:
     dy, dx = d 
@@ -42,4 +56,5 @@ def move(curr: coords, d: coords) -> coords:
         
 
 if __name__ == '__main__':
-    day03A()
+    # day03A()
+    day03B()
