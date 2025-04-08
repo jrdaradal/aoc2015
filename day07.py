@@ -38,7 +38,7 @@ def day07A():
 
 def day07B():
     full = True 
-    override = {'b': 3176}
+    override = {'b': 46065}
     solveA(full, override)
 
 def solveA(full: bool, override: dict[str,int]|None = None):

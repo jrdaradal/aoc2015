@@ -79,5 +79,5 @@ def isNiceV2(word: str) -> bool:
     return True
 
 if __name__ == '__main__':
-    # day05A()
+    day05A()
     day05B()

@@ -46,5 +46,5 @@ def expandString(text: str) -> str:
     return '"%s"' % ''.join(chars)
 
 if __name__ == '__main__':
-    # day08A()
+    day08A()
     day08B()

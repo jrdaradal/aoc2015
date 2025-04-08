@@ -34,5 +34,5 @@ def day01B():
                 break
 
 if __name__ == '__main__':
-    # day01A()
+    day01A()
     day01B()

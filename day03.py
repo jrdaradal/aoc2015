@@ -45,7 +45,7 @@ def day03B():
             robo = move(robo, moves[i+1])
             visited.add(santa)
             visited.add(robo)
-        print('Visited', len(visited))
+        print(len(visited))
 
 
 def move(curr: coords, d: coords) -> coords:
@@ -56,5 +56,5 @@ def move(curr: coords, d: coords) -> coords:
         
 
 if __name__ == '__main__':
-    # day03A()
+    day03A()
     day03B()

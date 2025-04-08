@@ -32,5 +32,5 @@ def findMin(key: str, numZeros: int):
             break
 
 if __name__ == '__main__':
-    # day04A()
+    day04A()
     day04B()

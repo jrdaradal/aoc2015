@@ -30,5 +30,5 @@ def day02B():
     print('Total:', total)
 
 if __name__ == '__main__':
-    # day02A()
+    day02A()
     day02B()

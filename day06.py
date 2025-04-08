@@ -51,5 +51,5 @@ def day06B():
     print(sum(grid.values()))
 
 if __name__ == '__main__':
-    # day06A()
+    day06A()
     day06B()
