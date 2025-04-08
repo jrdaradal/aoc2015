@@ -5,6 +5,7 @@ import itertools
 from utils import * 
 
 # SolutionA: 117
+# SolutionB: 909
 
 edgeMap = dict[tuple[str,str],int]
 
@@ -34,6 +35,15 @@ def day09A():
         minDistance = min(minDistance, computeDistance(path, g.edges))
     print('MinDist:', minDistance)
 
+def day09B():
+    full = True
+    g = input09(full)
+    maxDistance = 0
+    for path in itertools.permutations(g.vertices):
+        maxDistance = max(maxDistance, computeDistance(path, g.edges))
+    print('MaxDist:', maxDistance)
+
+
 def computeDistance(path: tuple, edges: edgeMap) -> int:
     total = 0
     for i in range(1, len(path)):
@@ -42,4 +52,5 @@ def computeDistance(path: tuple, edges: edgeMap) -> int:
     return total
 
 if __name__ == '__main__':
-    day09A()
+    # day09A()
+    day09B()
